@@ -2,25 +2,15 @@
   <div
     class="``"
     :class="
-      `a-select-box rounded-2 ` +
+      `a-button-box rounded-2 ` +
       (isFocused
         ? `border-${color}  bloom-3-${color}-glassy-5`
         : `border-grey  bloom-3-grey-glassy-9`)
     "
   >
-    <input
-      type="text"
-      placeholder="teste"
-      @focus="focus()"
-      @blur="blur()"
-      :class="`text--${color}-lighten-3`"
-      v-model="val"
-    />
-    <transition name="xablau">
-      <div v-show="isFocused" class="a-select-items">
-        <button class="a-select-button mx-2">asd</button>
-      </div>
-    </transition>
+    <button placeholder="teste" :class="`text--${color}-lighten-3`">
+      <slot />
+    </button>
   </div>
 </template>
 <script setup>
@@ -71,20 +61,11 @@ export default {
 }
 </script>
 <style lang="scss">
-.a-select-box {
-  position: relative;
-  input {
-    z-index: 1;
-  }
-  .a-select-items {
-    position: absolute;
-    flex-direction: column;
+.a-button-box {
+  button {
     display: flex;
-    width: 100%;
-    z-index: 0;
-    transform: translate(0, 100%);
-
-    bottom: 0;
+    justify-content: center;
+    align-items: center;
   }
 }
 .xablau-enter-active {

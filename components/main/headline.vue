@@ -42,7 +42,7 @@
       </p>
       <div class="row justify-center">
         <div class="col-6">
-          <a-select :color="color"></a-select>
+          <a-button :color="color">Clica</a-button>
         </div>
       </div>
     </div>
