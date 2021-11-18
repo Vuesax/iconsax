@@ -1,0 +1,77 @@
+@import '../tools/_functions.sass';
+
+@function generateColorScheme($color) {
+ $c: $color;
+  $colors: ('default': $c) !default;
+
+  @for $i from 1 through 5 {
+    $colors: map-merge($colors, ('lighten-#{$i}': lighten($c, $i * 10)))
+  }
+  @for $i from 1 through 5 {
+    $colors: map-merge($colors, ('darken-#{$i}': darken($c, $i * 10)))
+  }
+  @for $i from 1 through 10 {
+    $colors: map-merge($colors, ('glassy-#{$i}': transparentize($c, ($i /10))))
+  }
+  @for $i from 1 through 10 {
+    $colors: map-merge($colors, ('pale-#{$i}':  desaturate($c, percentage($i /10))))
+  }
+
+  @return $colors
+}
+
+// $reds: ('default': #F44336FF) !default;
+
+//   @for $i from 1 through 5 {
+//     $reds: map-merge($reds, ('lighten-#{$i}': lighten($red, $i * 10)))
+//   }
+//   @for $i from 1 through 5 {
+//     $reds: map-merge($reds, ('darken-#{$i}': darken($red, $i * 10)))
+//   }
+//   @for $i from 1 through 10 {
+//     $reds: map-merge($reds, ('transparency-#{$i}': transparentize($red, (($i /10)))))
+//   }
+//   @for $i from 1 through 10 {
+//     //redundant but eazy
+//     $reds: map-merge($reds, ('gradient-radial-#{$i}':  transparentize($red, (($i /10)))))
+
+//   }
+
+
+
+$shades: () !default;
+$shades: map-deep-merge(
+  (
+    'black': #000000,
+    'white': #FFFFFF,
+    'transparent': transparent
+  ),
+  $shades
+);
+$primaryes: generateColorScheme(#8f00ff);
+$accents: generateColorScheme(#6F00FF);
+$blues: generateColorScheme(#3F00FF);
+$oranges: generateColorScheme(#FF5800);
+$backgrounds: generateColorScheme(#0d1821);
+$greys: generateColorScheme(#555555ff);
+$infos: generateColorScheme(#75dddd);
+$greens: generateColorScheme(#cbff4d);
+$reds: generateColorScheme(#ff312e);
+
+$colors: () !default;
+$colors: map-deep-merge(
+  (
+    'primary': $primaryes,
+    'accent': $accents,
+    'blue': $blues,
+    'orange': $oranges,
+    'red': $reds,
+    'background': $backgrounds,
+    'info': $infos,
+    'green': $greens,
+    'grey': $greys,
+    'shades': $shades,
+    
+  ),
+  $colors
+);

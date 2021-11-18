@@ -1,0 +1,34 @@
+@mixin border($color_value, $border_width) {
+  border-color: $color_value;
+  border-width: $border_width;
+  border-style: solid;
+}
+
+
+@each $border_name, $border_value in $border-positions {
+  @each $color_name, $color_colors in $colors {
+    @each $color_type, $color_value in $color_colors {
+      @if ($color_type == "default") {
+        @if ($border_name == "default") {
+          .app .border-#{$color_name} {
+            @include border($color_value, $border_value);
+          }
+        } @else {
+          .app .border-#{$border_name}-#{$color_name} {
+            @include border($color_value, $border_value);
+          }
+        }
+      } @else {
+        @if ($border_name == "default") {
+          .app .border-#{$color_name}-#{$color_type} {
+            @include border($color_value, $border_value);
+          }
+        } @else {
+          .app .border-#{$border_name}-#{$color_name}-#{$color_type} {
+            @include border($color_value, $border_value);
+          }
+        }
+      }
+    }
+  }
+}

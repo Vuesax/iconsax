@@ -1,0 +1,21 @@
+@use "sass:string"
+
+@import './_text.sass'
+@import './_grid.sass'
+@import '../tools/_utilities.sass'
+
+// Utilities
+
+@each $key, $utility in $utilities
+      @if type-of($utility) == "map" 
+          +generate-utility($utility, '')
+
+@each $breakpoint in map-keys($grid-breakpoints)
+  // Generate media query if needed
+  +media-breakpoint-up($breakpoint)
+    $infix: breakpoint-infix($breakpoint, $grid-breakpoints)
+
+    // Loop over each utility property
+    @each $key, $utility in $utilities
+        @if type-of($utility) == "map" 
+          +generate-utility($utility, $infix)

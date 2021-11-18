@@ -1,0 +1,90 @@
+@import './styles/main.sass';
+body {
+    margin: 0;
+    padding: 0;
+}
+* {
+  transition: 0.6s;
+}
+input {
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  border-style: none;
+  font: inherit;
+  flex: 1 1 auto;
+  line-height: 20px;
+  padding: 8px;
+  max-width: 100%;
+}
+// Generate all imports for font styling
+$font-font-weight: (
+  'ExtraLight': 100,
+  'Light': 300,
+  'Regular': 400,
+  'Medium': 500,
+  'SemiBold': 700,
+  'Bold': 900,
+  'ExtraBold': 1200
+) !default;
+$font-font-style: (
+  '': normal,
+  'Italic': italic
+) !default;
+@each $fwName, $fwValue  in $font-font-weight {
+@each $fsName, $fsValue  in $font-font-style {
+@font-face {
+  font-family: 'Poppins';
+  src: url(~/assets/fonts/Poppins-#{$fwName}#{$fsName}.ttf);
+  src: local('Poppins'), local('Poppins-#{$fwName}#{fsName}'),
+    url(~/assets/fonts/Poppins-#{$fwName}#{$fsName}.ttf) format('truetype');
+  font-weight: $fwValue;
+  font-style: $fsValue;
+}
+}
+}
+
+p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+  margin-inline-start: 0;
+  margin-inline-end: 0;
+  margin-bottom: $spacer * 4;
+}
+
+.app{
+ .app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+ }
+}
+
+.waves {
+    top: 0%;
+    left: 0%;
+    position: absolute;    
+    height: 100%;
+    width: 100%;
+    mask-image: url('/wave.svg');
+    -webkit-mask-image: url('/wave.svg');
+    background-repeat: repeat;
+    mask-size: 100px;
+    animation-name: infiniteSlide;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+  
+    animation-duration: 60s;
+    animation-timing-function: linear;
+  }
+  @keyframes infiniteSlide {
+    0% {
+      mask-position: 0% 0%;
+    }
+  
+    100% {
+      mask-position: 100% 0%;  
+    }
+  }
+
+ 

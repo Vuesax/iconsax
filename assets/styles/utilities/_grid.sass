@@ -1,0 +1,22 @@
+.app
+  @each $size, $media_query in $grid-breakpoints
+    .col
+      &-#{$size}
+        @media (min-width: $media_query)
+            @for $i from 1 through 12 
+              &-#{$i}
+               flex: 0 0 percentage($i / 12) 
+               max-width: 100%
+               width: percentage($i / 12)
+
+
+  .col 
+    @for $i from 1 through 12 
+       &-#{$i}
+        flex: 0 0 percentage($i / 12) 
+        max-width: 100%
+        width: percentage($i / 12)     
+  .row
+    display: flex
+    flex-wrap: wrap
+    flex: 1 1 auto
