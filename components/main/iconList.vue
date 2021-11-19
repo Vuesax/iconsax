@@ -2,7 +2,11 @@
   <div class="row justify-center">
     <div v-for="i in iterationCount" class="icon-list-box">
       <div class="pa-4">
-        <main-icon-box :color="color" :icon-name="iconNames[i]" />
+        <main-icon-box
+          :color="color"
+          :icon-style="iconStyle"
+          :icon-name="iconNames[i]"
+        />
       </div>
     </div>
   </div>
@@ -11,7 +15,7 @@
 import icons from '~/plugins/data/icons.js'
 let iconNames = icons
 console.log(iconNames[0])
-let iterationCount = ref(800)
+let iterationCount = ref(100)
 const props = defineProps({
   color: {
     type: String,

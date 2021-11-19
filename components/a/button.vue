@@ -97,6 +97,7 @@ export default {
     click(e) {
       this.isFocused = true
       this.ripple(e)
+      this.$emit('click', e)
     },
     hover() {
       this.isHovered = true
