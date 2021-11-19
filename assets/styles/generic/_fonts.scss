@@ -1,0 +1,14 @@
+// Generate all imports for font styling
+
+@each $fwName, $fwValue in $config-font-weight {
+  @each $fsName, $fsValue in $config-font-style {
+    @font-face {
+      font-family: "Poppins";
+      src: url(~/assets/fonts/Poppins-#{$fwName}#{$fsName}.ttf);
+      src: local("Poppins"), local("Poppins-#{$fwName}#{fsName}"),
+        url(~/assets/fonts/Poppins-#{$fwName}#{$fsName}.ttf) format("truetype");
+      font-weight: $fwValue;
+      font-style: $fsValue;
+    }
+  }
+}

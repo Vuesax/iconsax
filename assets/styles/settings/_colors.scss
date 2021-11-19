@@ -20,34 +20,6 @@
   @return $colors
 }
 
-// $reds: ('default': #F44336FF) !default;
-
-//   @for $i from 1 through 5 {
-//     $reds: map-merge($reds, ('lighten-#{$i}': lighten($red, $i * 10)))
-//   }
-//   @for $i from 1 through 5 {
-//     $reds: map-merge($reds, ('darken-#{$i}': darken($red, $i * 10)))
-//   }
-//   @for $i from 1 through 10 {
-//     $reds: map-merge($reds, ('transparency-#{$i}': transparentize($red, (($i /10)))))
-//   }
-//   @for $i from 1 through 10 {
-//     //redundant but eazy
-//     $reds: map-merge($reds, ('gradient-radial-#{$i}':  transparentize($red, (($i /10)))))
-
-//   }
-
-
-
-$shades: () !default;
-$shades: map-deep-merge(
-  (
-    'black': #000000,
-    'white': #FFFFFF,
-    'transparent': transparent
-  ),
-  $shades
-);
 $primaryes: generateColorScheme(#8f00ff);
 $accents: generateColorScheme(#6F00FF);
 $blues: generateColorScheme(#3F00FF);
@@ -70,7 +42,6 @@ $colors: map-deep-merge(
     'info': $infos,
     'green': $greens,
     'grey': $greys,
-    'shades': $shades,
     
   ),
   $colors

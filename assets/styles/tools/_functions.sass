@@ -19,10 +19,6 @@
     $current-key: nth($keys, $i)
     $current-map: nth($maps, -1)
     $current-get: map-get($current-map, $current-key)
-
-    @if $current-get == null
-      @error "Key `#{$key}` doesn't exist at current level in map."
-
     $maps: append($maps, $current-get)
 
   // Loop from the last map to the first one

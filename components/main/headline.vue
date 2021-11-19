@@ -1,7 +1,7 @@
 <template>
   <div class="row justify-lg-center my-lg-16">
     <div class="col-lg-3 p-sm-relative">
-      <div :class="'waves ' + color + '-gradient-radial'"></div>
+      <div :class="'a-waves ' + color + '-gradient-radial'"></div>
     </div>
     <div class="col-lg-6 my-lg-3">
       <p
@@ -21,10 +21,10 @@
         :class="
           'text-lg-h2 text-sm-center font-weight-bold text--' +
           color +
-          '-lighten-3-gradient-left'
+          '-lighten-2-gradient-left'
         "
       >
-        <span :class="'text--' + color + 'lighten-1-gradient-radial'">
+        <span :class="'text--' + color + '-glassy-4'">
           6000+
         </span>
         Awesome Icons
@@ -42,12 +42,20 @@
       </p>
       <div class="row justify-center">
         <div class="col-6">
-          <a-button :color="color">Clica</a-button>
+          <a-button rounded="pill" :color="color">
+            click me
+            <!--   <a-icon
+              size="24px"
+              :color="color"
+              icon-name="global-search"
+              icon-style="bold"
+            ></a-icon> -->
+          </a-button>
         </div>
       </div>
     </div>
     <div class="col-lg-3 p-sm-relative">
-      <div :class="'waves ' + color + '-gradient-radial'"></div>
+      <div :class="'a-waves ' + color + '-gradient-radial'"></div>
     </div>
   </div>
 </template>

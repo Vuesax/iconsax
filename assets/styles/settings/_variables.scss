@@ -1,5 +1,5 @@
 @import '../tools/_functions.sass';
-
+// Modyfied version of Vuetify utilities
 $body-font-family: 'Poppins', sans-serif !default;
 $font-size-root: 16px !default;
 $line-height-root: 1.5 !default;
@@ -8,19 +8,17 @@ $rounded: () !default;
 $rounded: map-deep-merge(
   (
     0: 0,
-    '1': $border-radius-root / 2,
-    '2': $border-radius-root,
-    '3': $border-radius-root * 2,
-    '4': $border-radius-root * 6,
+    '1': $border-radius-root / 4,
+    '2': $border-radius-root / 2,
+    '3': $border-radius-root ,
+    '4': $border-radius-root * 2,
     'pill': 9999px,
     'circle': 50%
   ),
   $rounded
 );
 
-
 $spacer: 4px !default;
-
 $spacers: () !default;
 @if (type-of($spacers) == list) {
   @for $i from 0 through 16 {
@@ -59,6 +57,21 @@ $font-weights: map-deep-merge(
   ),
   $font-weights
 );
+// fonts that will be imported
+$config-font-weight: (
+  "ExtraLight": 100,
+  "Light": 300,
+  "Regular": 400,
+  "Medium": 500,
+  "SemiBold": 700,
+  "Bold": 900,
+  "ExtraBold": 1200,
+) !default;
+$config-font-style: (
+  "": normal,
+  "Italic": italic,
+) !default;
+
 
 $headings: () !default;
 $headings: map-deep-merge(

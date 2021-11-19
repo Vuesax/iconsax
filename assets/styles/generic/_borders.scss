@@ -4,6 +4,11 @@
   border-style: solid;
 }
 
+.app .border-none {
+  border-color: transparent;
+  border-width: 0;
+  border-style: solid;
+}
 
 @each $border_name, $border_value in $border-positions {
   @each $color_name, $color_colors in $colors {

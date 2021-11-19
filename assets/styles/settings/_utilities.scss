@@ -1,9 +1,8 @@
 @import '../tools/_functions.sass';
-
+// Modifyed version of Vuetify utilities
 $utilities: () !default;
 $utilities: map-deep-merge(
   (
-    // Display utilities
     "overflow": (
       property: overflow,
       values: auto hidden visible,

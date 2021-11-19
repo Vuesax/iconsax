@@ -3,13 +3,13 @@
 
   <div class="row justify-center">
     <div class="col-8">
-      <main-icon-list :color="color"></main-icon-list>
+      <main-icon-list color="grey"></main-icon-list>
     </div>
   </div>
 </template>
 <script setup>
 const colors = ['primary']
-const color = ref('grey')
+const color = ref('orange')
 </script>
 <script>
 export default {

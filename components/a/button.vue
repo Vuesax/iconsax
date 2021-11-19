@@ -1,36 +1,35 @@
 <template>
-  <div
-    class="``"
-    :class="
-      `a-button-box rounded-2 ` +
-      (isFocused
-        ? `border-${color}  bloom-3-${color}-glassy-5`
-        : `border-grey  bloom-3-grey-glassy-9`)
-    "
+  <button
+    class="a-button text-button px-3"
+    :class="classesState"
+    @click="click($event)"
+    @mouseleave="blur()"
+    @mouseover="hover()"
   >
-    <button placeholder="teste" :class="`text--${color}-lighten-3`">
-      <slot />
-    </button>
-  </div>
+    <slot />
+  </button>
 </template>
 <script setup>
-let val = ref('')
 const props = defineProps({
   color: {
     type: String,
     default: 'primary',
   },
-  items: {
-    type: Array,
-    default: () => [],
-  },
-  iconStyle: {
+  mode: {
     type: String,
-    default: 'bold',
+    default: 'default',
   },
-  iconName: {
+  width: {
     type: String,
-    default: 'book',
+    default: '44px',
+  },
+  aspectRatio: {
+    type: String,
+    default: 'unset',
+  },
+  rounded: {
+    type: String,
+    default: 2,
   },
 })
 </script>
@@ -39,63 +38,108 @@ export default {
   data() {
     return {
       isFocused: false,
-      itemsCmp: this.items,
+      isHovered: false,
+      clickTop: 0,
+      clickleft: 0,
+      rippleSize: '0px',
     }
   },
+
+  computed: {
+    classes() {
+      return {
+        flat: {
+          default: [`border-none`, `text--${this.color}-lighten-3`],
+          hovered: [
+            `border-none`,
+            `bloom-5-${this.color}-glassy-7`,
+            `text--${this.color}-lighten-3`,
+          ],
+          focused: [
+            `border-none`,
+            `bloom-2-${this.color}-glassy-7`,
+            `text--${this.color}-lighten-3`,
+          ],
+        },
+        default: {
+          default: [
+            `border-${this.color} `,
+            `${this.color}-glassy-9-gradient-bottom-right`,
+            `bloom-3-${this.color}-glassy-8`,
+            `text--${this.color}-lighten-3`,
+          ],
+          hovered: [
+            `border-${this.color} `,
+            `${this.color}-glassy-8-gradient-bottom-right`,
+            `bloom-5-${this.color}-glassy-8`,
+            `text--${this.color}-lighten-3`,
+          ],
+          focused: [
+            `border-${this.color}`,
+            `${this.color}-glassy-7-gradient-bottom-right`,
+            `bloom-3-${this.color}-glassy-8`,
+            `text--${this.color}-lighten-3`,
+          ],
+        },
+      }
+    },
+
+    classesState() {
+      return [
+        ...[`rounded-${this.rounded}`],
+        ...this.classes[this.mode][
+          this.isHovered ? (this.isFocused ? 'focused' : 'hovered') : 'default'
+        ],
+      ]
+    },
+  },
   methods: {
-    focus() {
+    click(e) {
       this.isFocused = true
+      this.ripple(e)
+    },
+    hover() {
+      this.isHovered = true
     },
     blur() {
       this.isFocused = false
+      this.isHovered = false
     },
-  },
-  watch: {
-    items: {
-      handler: function () {
-        this.itemsCmp = this.items
-      },
-      deep: true,
+    ripple(event) {
+      const button = event.currentTarget
+      const circle = document.createElement('span')
+      const diameter = Math.max(button.clientWidth, button.clientHeight)
+      const radius = diameter / 2
+      circle.style.width = circle.style.height = `${diameter}px`
+      circle.style.left = `${event.clientX - (button.offsetLeft + radius)}px`
+      circle.style.top = `${event.clientY - (button.offsetTop + radius)}px`
+      circle.classList.add('a-ripple')
+      const ripple = button.getElementsByClassName('ripple')[0]
+
+      if (ripple) {
+        ripple.remove()
+      }
+      button.appendChild(circle)
     },
   },
 }
 </script>
 <style lang="scss">
-.a-button-box {
-  button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-.xablau-enter-active {
-  animation: bounce-in 0.5s;
-}
-.xablau-leave-active {
-  animation: bounce-in 0.5s reverse;
-}
-.xablau-enter-to {
-  transform: translate(0, 100%);
-}
-.xablau-enter-from,
-.xablau-leave-to {
-  transform: translate(0, 0);
-  opacity: 0;
-  z-index: -1;
-}
+.a-button {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  user-select: none;
+  background-color: transparent;
+  outline: none;
+  transition: all 0.25s ease;
 
-@keyframes bounce-in {
-  0% {
-    transform: translate(0, 0);
-  }
-  30% {
-    transform: translate(0, 100%);
-  }
-  70% {
-    transform: translate(0, 120%);
-  }
-  100% {
-    transform: translate(0, 100%);
-  }
+  height: auto;
+  min-width: v-bind(width);
+  aspect-ratio: v-bind(aspectRatio);
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 </style>

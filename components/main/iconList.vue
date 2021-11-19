@@ -11,7 +11,7 @@
 import icons from '~/plugins/data/icons.js'
 let iconNames = icons
 console.log(iconNames[0])
-let iterationCount = ref(100)
+let iterationCount = ref(800)
 const props = defineProps({
   color: {
     type: String,

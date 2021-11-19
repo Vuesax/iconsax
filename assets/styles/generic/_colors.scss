@@ -8,7 +8,7 @@
 }
 @mixin bloom($color_value, $i) {
   -webkit-box-shadow: 0px #{$i * 2}px #{$i * 4}px 0px $color_value; 
-  box-shadow: 0px #{$i * 2}px #{$i * 4}px 0px $color_value;
+  box-shadow: 0px #{$i * 2}px #{$i * 3}px 0px $color_value;
 }
 
 
