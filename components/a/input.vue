@@ -8,9 +8,16 @@
         : `  bloom-3-grey-glassy-9`)
     "
   >
+    <a-icon
+      size="32px"
+      class="ma-2"
+      :color="color"
+      icon-name="search-normal"
+      icon-style="linear"
+    />
     <input
       type="text"
-      placeholder="teste"
+      :placeholder="placeholder"
       @focus="focus()"
       @blur="blur()"
       :class="`a-input text--${color}-lighten-3`"
@@ -19,11 +26,14 @@
   </div>
 </template>
 <script setup>
-let val = ref('')
 const props = defineProps({
+  modelValue: {
+    type: String,
+    default: '',
+  },
   color: {
     type: String,
-    default: 'primary',
+    default: 'purple',
   },
   light: {
     type: Boolean,
@@ -32,6 +42,10 @@ const props = defineProps({
   iconStyle: {
     type: String,
     default: 'bold',
+  },
+  placeholder: {
+    type: String,
+    default: '',
   },
   iconName: {
     type: String,
@@ -44,8 +58,21 @@ export default {
   data() {
     return {
       isFocused: false,
+      val: this.modelValue,
+      timeout: null,
     }
   },
+  watch: {
+    val() {
+      clearTimeout(this.timeout)
+      this.timeout = setTimeout(() => {
+        console.log('asd')
+
+        this.$emit('update:modelValue', this.val)
+      }, 1000)
+    },
+  },
+
   methods: {
     focus() {
       this.isFocused = true
@@ -58,6 +85,8 @@ export default {
 </script>
 <style lang="scss">
 .a-input-box {
+  display: flex;
+  align-items: center;
   .a-input {
     outline: none;
     appearance: none;

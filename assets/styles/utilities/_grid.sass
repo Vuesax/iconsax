@@ -5,16 +5,16 @@
         @media (min-width: $media_query)
             @for $i from 1 through 12 
               &-#{$i}
-               flex: 0 0 percentage($i / 12) 
-               max-width: 100%
-               width: percentage($i / 12)
+               flex: 0 0 percentage($i / 12) !important
+               max-width: 100% !important
+               width: percentage($i / 12) !important
                
   .col 
     @for $i from 1 through 12 
        &-#{$i}
-        flex: 0 0 percentage($i / 12) 
+        flex: 0 0 percentage($i / 12)
         max-width: 100%
-        width: percentage($i / 12)     
+        width: percentage($i / 12)
   .row
     display: flex
     flex-wrap: wrap

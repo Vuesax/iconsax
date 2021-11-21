@@ -2,6 +2,8 @@
 @mixin background-radial($color_value) {
 
   background-image: radial-gradient(circle, $color_value, #00000000 90%) !important;
+  backdrop-filter: blur(4px);
+
 }
 
 @mixin text-clip-radial($color_value) {
@@ -9,11 +11,15 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(4px);
+
 }
 
 @mixin background-linear($color_value, $direction_value) {
 
   background-image: linear-gradient($direction_value, $color_value, $color_value 20% ,scale-color($color_value, $alpha: -50% )) !important;
+  backdrop-filter: blur(4px);
+
 }
 
 @mixin text-clip-linear($color_value, $direction_value) {
@@ -21,6 +27,8 @@
   background-clip: text;
   -webkit-background-clip: text;
   color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(4px);
+
 }
 
 @each $direction_name, $direction_value in $directions {

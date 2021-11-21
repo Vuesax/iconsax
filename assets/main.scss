@@ -3,6 +3,7 @@
 @import './styles/generic/_index';
 @import './styles/utilities/_index';
 @import './styles/elements/_index';
+// Change default behaviour of style
 html{
   font-size: $font-size-root;
   overflow-x: hidden;
@@ -20,7 +21,24 @@ body {
   padding: 0;
 
 }
+header {
+  position:relative;
+  z-index:10
+}
+input {
+  outline: none;
+  appearance: none;
+  background-color: transparent;
+  border-style: none;
+  font: inherit;
+  flex: 1 1 auto;
+  line-height: 20px;
+  padding: 8px;
+  max-width: 100%;
+  }
+// ----------------
 
+// General
 .app{
   font-family: $body-font-family;
   font-weight: 300;
@@ -31,18 +49,9 @@ body {
   flex-direction: column;
   }
   }
+// -----------------
 
-input {
-outline: none;
-appearance: none;
-background-color: transparent;
-border-style: none;
-font: inherit;
-flex: 1 1 auto;
-line-height: 20px;
-padding: 8px;
-max-width: 100%;
-}
+// Animations 
 @keyframes infiniteSlide {
   0% {
     mask-position: 0% 0%;

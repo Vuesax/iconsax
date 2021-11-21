@@ -1,27 +1,28 @@
 <template>
-  <main-headline @change-icon-style="changeIconStyle" :color="color" />
+  <main-headline v-model="iconQuery" :color="iconQuery.currentColor" />
 
   <div class="row justify-center">
-    <div class="col-8">
-      <main-icon-list :icon-style="iconStyle" color="grey"></main-icon-list>
+    <div class="col-12 col-md-10 col-lg-10 col-xl-8">
+      <main-icon-list
+        :category="iconQuery.currentCategory"
+        :icon-style="iconQuery.currentIconMode"
+        :color="iconQuery.currentColor"
+        :query="iconQuery.currentQuery"
+      ></main-icon-list>
     </div>
   </div>
 </template>
 <script setup>
-const colors = ['primary']
-const color = ref('primary')
-const iconStyle = ref('twotone')
+const iconQuery = ref({
+  currentCategory: '',
+  currentIconMode: 'linear',
+  currentColor: 'purple',
+  currentQuery: '',
+})
 </script>
 <script>
 export default {
-  methods: {
-    changeColor() {
-      this.color = 'green'
-    },
-    changeIconStyle(style) {
-      this.iconStyle = style
-    },
-  },
+  methods: {},
 }
 </script>
 <style lang="scss"></style>

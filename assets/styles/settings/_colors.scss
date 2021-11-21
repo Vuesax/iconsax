@@ -20,28 +20,35 @@
   @return $colors
 }
 
-$primaryes: generateColorScheme(#8f00ff);
-$accents: generateColorScheme(#6F00FF);
-$blues: generateColorScheme(#3F00FF);
+// $eletric-blues: generateColorScheme(#6F00FF);
+$purples: generateColorScheme(#8f00ff);
+$blues: generateColorScheme(#0019FF);
+$pinks: generateColorScheme(#FF00C3);
 $oranges: generateColorScheme(#FF5800);
+$golds: generateColorScheme(#A57C00);
+$greens: generateColorScheme(#299617);
+$cyans: generateColorScheme(#00EEFF);
+$yellows: generateColorScheme(#FFD300);
+$successs: generateColorScheme(#6EFF00);
+$reds: generateColorScheme(#FF1100);
 $backgrounds: generateColorScheme(#0d1821);
-$greys: generateColorScheme(#555555ff);
-$infos: generateColorScheme(#75dddd);
-$greens: generateColorScheme(#cbff4d);
-$reds: generateColorScheme(#ff312e);
+$greys: generateColorScheme(#666666ff);
 
 $colors: () !default;
 $colors: map-deep-merge(
   (
-    'primary': $primaryes,
-    'accent': $accents,
+    'purple': $purples,
     'blue': $blues,
+    'pink': $pinks,
     'orange': $oranges,
+    'gold': $golds,
+    'green': $greens,
+    'cyan': $cyans,
+    'yellow': $yellows,
     'red': $reds,
     'background': $backgrounds,
-    'info': $infos,
-    'green': $greens,
     'grey': $greys,
+    'success': $successs,
     
   ),
   $colors

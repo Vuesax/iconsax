@@ -1,5 +1,5 @@
 <template>
-  <div class="icon-box">
+  <div class="a-icon-box">
     <div :class="`a-icon-${iconStyle}-${iconName} ${color}`"></div>
   </div>
 </template>
@@ -7,7 +7,7 @@
 const props = defineProps({
   color: {
     type: String,
-    default: 'primary',
+    default: 'purple',
   },
   size: {
     type: String,
@@ -23,8 +23,8 @@ const props = defineProps({
   },
 })
 </script>
-<style lang="scss">
-.icon-box {
+<style lang="scss" scoped>
+.a-icon-box {
   width: v-bind(size);
   height: auto;
   aspect-ratio: 1;

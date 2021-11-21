@@ -2,7 +2,7 @@
   <button
     class="a-button text-button px-3"
     :class="classesState"
-    @click="click($event)"
+    @click.stop="click($event)"
     @mouseleave="blur()"
     @mouseover="hover()"
   >
@@ -10,10 +10,11 @@
   </button>
 </template>
 <script setup>
+const darkMode = useState('darkMode')
 const props = defineProps({
   color: {
     type: String,
-    default: 'primary',
+    default: 'purple',
   },
   mode: {
     type: String,
@@ -29,7 +30,11 @@ const props = defineProps({
   },
   rounded: {
     type: String,
-    default: 2,
+    default: '2',
+  },
+  active: {
+    type: Boolean,
+    default: false,
   },
 })
 </script>
@@ -39,9 +44,6 @@ export default {
     return {
       isFocused: false,
       isHovered: false,
-      clickTop: 0,
-      clickleft: 0,
-      rippleSize: '0px',
     }
   },
 
@@ -49,36 +51,76 @@ export default {
     classes() {
       return {
         flat: {
-          default: [`border-none`, `text--${this.color}-lighten-3`],
+          default: [
+            `text--${this.color}-${this.darkMode ? 'lighten-4' : 'darken-2'}`,
+            `border-none`,
+          ],
           hovered: [
+            `text--${this.color}-${this.darkMode ? 'lighten-4' : 'darken-3'}`,
             `border-none`,
             `bloom-5-${this.color}-glassy-7`,
-            `text--${this.color}-lighten-3`,
           ],
           focused: [
+            `text--${this.color}-${this.darkMode ? 'lighten-4' : 'darken-3'}`,
             `border-none`,
             `bloom-2-${this.color}-glassy-7`,
-            `text--${this.color}-lighten-3`,
           ],
         },
         default: {
           default: [
-            `border-${this.color} `,
-            `${this.color}-glassy-9-gradient-bottom-right`,
+            `text--${this.color}-${this.darkMode ? 'lighten-4' : 'lighten-5'}`,
+
+            `border-${this.color}-lighten-2`,
+
+            `${this.color}-${
+              this.darkMode ? 'glassy-9' : 'glassy-6'
+            }-gradient-bottom-right`,
             `bloom-3-${this.color}-glassy-8`,
-            `text--${this.color}-lighten-3`,
           ],
           hovered: [
+            `text--${this.color}-${this.darkMode ? 'lighten-4' : 'lighten-5'}`,
+
             `border-${this.color} `,
-            `${this.color}-glassy-8-gradient-bottom-right`,
+            `${this.color}-${
+              this.darkMode ? 'glassy-8' : 'glassy-1'
+            }-gradient-bottom-right`,
             `bloom-5-${this.color}-glassy-8`,
-            `text--${this.color}-lighten-3`,
           ],
           focused: [
-            `border-${this.color}`,
-            `${this.color}-glassy-7-gradient-bottom-right`,
+            `text--${this.color}-${this.darkMode ? 'lighten-4' : 'lighten-5'}`,
+
+            `border-${this.color}${this.darkMode ? '' : '-glassy-5'}`,
+            `${this.color}-${
+              this.darkMode ? 'glassy-5' : 'glassy-1'
+            }-gradient-bottom-right`,
             `bloom-3-${this.color}-glassy-8`,
-            `text--${this.color}-lighten-3`,
+          ],
+        },
+        filled: {
+          default: [
+            `text--${this.color}-${this.darkMode ? 'lighten-4' : 'lighten-5'}`,
+
+            `border-${this.color}-lighten-2`,
+            `${this.color}-${
+              this.darkMode ? 'darken' : 'lighten'
+            }-2-gradient-bottom-right`,
+            `bloom-1-${this.color}-glassy-9`,
+          ],
+          hovered: [
+            `text--${this.color}-${this.darkMode ? 'lighten-4' : 'lighten-5'}`,
+
+            `border-${this.color}-lighten-3 `,
+            `${this.color}-${
+              this.darkMode ? 'darken' : 'lighten'
+            }-2-gradient-bottom-right`,
+            `bloom-5-${this.color}-glassy-8`,
+          ],
+          focused: [
+            `text--${this.color}-${this.darkMode ? 'lighten-4' : 'lighten-5'}`,
+
+            `border-${this.color}`,
+            `${this.color}-glassy-5-gradient-bottom-right`,
+            `bloom-3-${this.color}-glassy-8`,
           ],
         },
       }
@@ -88,16 +130,20 @@ export default {
       return [
         ...[`rounded-${this.rounded}`],
         ...this.classes[this.mode][
-          this.isHovered ? (this.isFocused ? 'focused' : 'hovered') : 'default'
+          this.isHovered || this.active
+            ? this.isFocused || this.active
+              ? 'focused'
+              : 'hovered'
+            : 'default'
         ],
       ]
     },
   },
   methods: {
     click(e) {
+      console.log(this.darkMode)
       this.isFocused = true
       this.ripple(e)
-      this.$emit('click', e)
     },
     hover() {
       this.isHovered = true
@@ -115,7 +161,7 @@ export default {
       circle.style.left = `${event.clientX - (button.offsetLeft + radius)}px`
       circle.style.top = `${event.clientY - (button.offsetTop + radius)}px`
       circle.classList.add('a-ripple')
-      const ripple = button.getElementsByClassName('ripple')[0]
+      const ripple = button.getElementsByClassName('a-ripple')[0]
 
       if (ripple) {
         ripple.remove()
@@ -142,5 +188,8 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  &:hover {
+    transform: translateY(-2px);
+  }
 }
 </style>

@@ -138,12 +138,12 @@
   overflow: visible;
 }
 .group-feat {
-  fill: var(--v-primary-lighten1);
-  filter: drop-shadow(0px 4px 12px var(--v-primary-base));
+  fill: var(--v-purple-lighten1);
+  filter: drop-shadow(0px 4px 12px var(--v-purple-base));
 }
 
 .group-arthur {
-  fill: var(--v-primary-lighten3);
+  fill: var(--v-purple-lighten3);
 }
 
 .vuesax-logo-poligon {

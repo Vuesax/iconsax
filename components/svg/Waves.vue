@@ -1,5 +1,5 @@
 <template>
-  <div class="waves purple darken-1"></div>
+  <div class="waves purple-darken-1"></div>
 </template>
 <script>
 export default {
