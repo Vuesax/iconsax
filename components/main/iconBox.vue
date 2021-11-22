@@ -38,7 +38,7 @@ const props = defineProps({
     default: 'book',
   },
   active: {
-    type: Boolean,
+    type: [Boolean, String],
     default: false,
   },
 })

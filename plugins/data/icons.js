@@ -892,5 +892,7 @@ const icons = [
   'alarm',
   'align-bottom',
   'align-horizontally',
+  'behance',
+  'dribble',
 ]
 export default icons

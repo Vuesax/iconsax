@@ -36,6 +36,10 @@ const props = defineProps({
     type: Boolean,
     default: false,
   },
+  to: {
+    type: String,
+    default: '',
+  },
 })
 </script>
 <script>
@@ -62,7 +66,10 @@ export default {
           ],
           focused: [
             `text--${this.color}-${this.darkMode ? 'lighten-4' : 'darken-3'}`,
-            `border-none`,
+            `border-${this.color}-lighten-2`,
+            `${this.color}-${
+              this.darkMode ? 'glassy-9' : 'glassy-6'
+            }-gradient-bottom-right`,
             `bloom-2-${this.color}-glassy-7`,
           ],
         },
@@ -141,7 +148,9 @@ export default {
   },
   methods: {
     click(e) {
-      console.log(this.darkMode)
+      if (this.to) {
+        this.$router.push(this.to)
+      }
       this.isFocused = true
       this.ripple(e)
     },

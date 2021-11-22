@@ -21,7 +21,7 @@
       ></a-icon>
     </a-button>
     <transition name="xablau">
-      <div v-show="isFocused" class="a-select-items">
+      <div v-if="isFocused" class="a-select-items">
         <a-button
           class="my-1"
           v-if="items.length"

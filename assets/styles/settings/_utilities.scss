@@ -27,6 +27,12 @@ $utilities: map-deep-merge(
       class: p,
       values: static relative fixed absolute sticky
     ),
+    "z-index": (
+      print: true,
+      property: z-index,
+      class: z,
+      values: 1 5 10 25 50 100
+    ),
     "height": (
       print: true,
       property: height,
@@ -50,6 +56,12 @@ $utilities: map-deep-merge(
             '75': 75%,
             '100': 100%,
       )
+    ),
+    "aspect-ratio": (
+      print: true,
+      property: aspect-ratio,
+      class: ar,
+      values: 1 unset
     ),
     "float": (
       print: true,

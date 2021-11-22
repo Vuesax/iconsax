@@ -36,6 +36,23 @@ input {
   padding: 8px;
   max-width: 100%;
   }
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #000000;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #555555;
+    background-size: cover;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #666666;
+    background-size: cover;
+  }
 // ----------------
 
 // General

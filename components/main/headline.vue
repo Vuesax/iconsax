@@ -1,12 +1,12 @@
 <template>
-  <div class="row justify-center mt-16">
+  <div class="row justify-center">
     <div
       :class="`d-none d-md-block col-md-2 col-lg-3 a-waves-mask ${color}-gradient-radial`"
     ></div>
     <div class="col-10 col-md-8 col-lg-6 my-lg-3">
       <p
         :class="
-          'text-xs-h6 text-md-h5 text-center font-weight-thin text--' +
+          ' mt-8 text-xs-h6 text-md-h5 text-center font-weight-thin text--' +
           color +
           '-' +
           (darkMode ? 'lighten' : 'darken') +
@@ -38,13 +38,64 @@
       </p>
       <p
         :class="
-          'text-normal text-center font-weight-light text--' + color + '-pale-8'
+          'mt-16 text-normal text-center font-weight-light text--' +
+          color +
+          '-pale-8'
         "
       >
         <span :class="'text--' + color + '-pale-7'">Download</span>
         in your favorite format
         <i class="isax isax-repeat3"></i>
       </p>
+      <div class="d-flex flex-wrap justify-center">
+        <a-button :color="color" aspect-ratio="1" class="mx-2" rounded="circle">
+          <div
+            class="ar-1 downloads-image"
+            style="background-image: url(/landing/downloads/ai-logo.svg);"
+          ></div>
+        </a-button>
+        <a-button :color="color" class="mx-2" aspect-ratio="1" rounded="circle">
+          <div
+            class="ar-1 downloads-image"
+            style="background-image: url(/landing/downloads/iconsax-css.svg);"
+          ></div>
+        </a-button>
+        <a-button :color="color" class="mx-2" aspect-ratio="1" rounded="circle">
+          <div
+            class="ar-1 downloads-image"
+            style="
+              background-image: url(/landing/downloads/iconsax-flutter.svg);
+            "
+          ></div>
+        </a-button>
+        <a-button :color="color" class="mx-2" aspect-ratio="1" rounded="circle">
+          <div
+            class="ar-1 downloads-image"
+            style="background-image: url(/landing/downloads/iconsax-jar.svg);"
+          ></div>
+        </a-button>
+
+        <a-button :color="color" class="mx-2" aspect-ratio="1" rounded="circle">
+          <div
+            class="ar-1 downloads-image"
+            style="background-image: url(/landing/downloads/iconsax-svg.svg);"
+          ></div>
+        </a-button>
+
+        <a-button :color="color" class="mx-2" aspect-ratio="1" rounded="circle">
+          <div
+            class="ar-1 downloads-image"
+            style="background-image: url(/landing/downloads/ps-logo.svg);"
+          ></div>
+        </a-button>
+        <a-button :color="color" class="mx-2" aspect-ratio="1" rounded="circle">
+          <div
+            class="ar-1 downloads-image"
+            style="background-image: url(/landing/downloads/xd-logo.svg);"
+          ></div>
+        </a-button>
+      </div>
+
       <div class="d-flex flex-column mt-16 mb-6">
         <div :class="`rounded-3 row  border-${color}`">
           <div class="col-12 col-md-3">
@@ -163,7 +214,7 @@ const iconCategories = [
   { value: 'search', icon: 'search-normal' },
   { value: 'remove', icon: 'cloud-remove' },
 ]
-const iconModes = ['bold', 'broken', 'bulk', 'linear', 'outline', 'twotone']
+const iconModes = ['linear', 'bold', 'broken', 'bulk', 'outline', 'twotone']
 const colors = [
   { value: 'purple', icon: 'paintbucket' },
   { value: 'blue', icon: 'paintbucket' },
@@ -241,3 +292,11 @@ export default {
   },
 }
 </script>
+<style lang="scss" scoped>
+.downloads-image {
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  width: 30px;
+}
+</style>

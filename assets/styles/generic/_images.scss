@@ -1,0 +1,14 @@
+@mixin image($image, $theme) {
+  background-size: contain;
+  background-repeat: no-repeat ;
+  background-position: center;
+  background-image: url("/landing/#{$theme}/#{$image}");
+}
+
+@each $image-theme in $image-themes {
+  @each $image-name, $image-file in $landing-images {
+    .app .a-image-#{$image-theme}-#{$image-name} {
+      @include image($image-file, $image-theme);
+    }
+  }
+}
