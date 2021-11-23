@@ -25,6 +25,13 @@ header {
   position:relative;
   z-index:10
 }
+a:-webkit-any-link {
+  text-decoration: none;
+  text-decoration-line: none;
+  text-decoration-thickness: none;
+  text-decoration-style: none;
+  text-decoration-color: none;
+}
 input {
   outline: none;
   appearance: none;

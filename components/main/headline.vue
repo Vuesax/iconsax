@@ -1,7 +1,7 @@
 <template>
   <div class="row justify-center">
     <div
-      :class="`d-none d-md-block col-md-2 col-lg-3 a-waves-mask ${color}-gradient-radial`"
+      :class="`d-none d-md-block col-md-2 col-lg-3  a-waves-mask ${color}-gradient-radial`"
     ></div>
     <div class="col-10 col-md-8 col-lg-6 my-lg-3">
       <p
@@ -48,39 +48,19 @@
         <i class="isax isax-repeat3"></i>
       </p>
       <div class="d-flex flex-wrap justify-center">
-        <a-button :color="color" aspect-ratio="1" class="mx-2" rounded="circle">
-          <div
-            class="ar-1 downloads-image"
-            style="background-image: url(/landing/downloads/ai-logo.svg);"
-          ></div>
-        </a-button>
-        <a-button :color="color" class="mx-2" aspect-ratio="1" rounded="circle">
-          <div
-            class="ar-1 downloads-image"
-            style="background-image: url(/landing/downloads/iconsax-css.svg);"
-          ></div>
-        </a-button>
-        <a-button :color="color" class="mx-2" aspect-ratio="1" rounded="circle">
-          <div
-            class="ar-1 downloads-image"
-            style="
-              background-image: url(/landing/downloads/iconsax-flutter.svg);
-            "
-          ></div>
-        </a-button>
-        <a-button :color="color" class="mx-2" aspect-ratio="1" rounded="circle">
-          <div
-            class="ar-1 downloads-image"
-            style="background-image: url(/landing/downloads/iconsax-jar.svg);"
-          ></div>
-        </a-button>
-
-        <a-button :color="color" class="mx-2" aspect-ratio="1" rounded="circle">
-          <div
-            class="ar-1 downloads-image"
-            style="background-image: url(/landing/downloads/iconsax-svg.svg);"
-          ></div>
-        </a-button>
+        <a href="https://iconsax.io/Iconsax/AI.zip">
+          <a-button
+            :color="color"
+            aspect-ratio="1"
+            class="mx-2"
+            rounded="circle"
+          >
+            <div
+              class="ar-1 downloads-image"
+              style="background-image: url(/landing/downloads/ai-logo.svg);"
+            ></div>
+          </a-button>
+        </a>
 
         <a-button :color="color" class="mx-2" aspect-ratio="1" rounded="circle">
           <div
@@ -88,12 +68,77 @@
             style="background-image: url(/landing/downloads/ps-logo.svg);"
           ></div>
         </a-button>
-        <a-button :color="color" class="mx-2" aspect-ratio="1" rounded="circle">
-          <div
-            class="ar-1 downloads-image"
-            style="background-image: url(/landing/downloads/xd-logo.svg);"
-          ></div>
-        </a-button>
+
+        <a href="https://iconsax.io/Iconsax/Xd.zip">
+          <a-button
+            :color="color"
+            class="mx-2"
+            aspect-ratio="1"
+            rounded="circle"
+          >
+            <div
+              class="ar-1 downloads-image"
+              style="background-image: url(/landing/downloads/xd-logo.svg);"
+            ></div>
+          </a-button>
+        </a>
+
+        <a href="https://iconsax.io/Iconsax/css.zip">
+          <a-button
+            :color="color"
+            class="mx-2"
+            aspect-ratio="1"
+            rounded="circle"
+          >
+            <div
+              class="ar-1 downloads-image"
+              style="background-image: url(/landing/downloads/iconsax-css.svg);"
+            ></div>
+          </a-button>
+        </a>
+
+        <a href="https://pub.dev/packages/iconsax" target="_blank">
+          <a-button
+            :color="color"
+            class="mx-2"
+            aspect-ratio="1"
+            rounded="circle"
+          >
+            <div
+              class="ar-1 downloads-image"
+              style="
+                background-image: url(/landing/downloads/iconsax-flutter.svg);
+              "
+            ></div>
+          </a-button>
+        </a>
+
+        <a href="https://iconsax.io/Iconsax/Jar.zip">
+          <a-button
+            :color="color"
+            class="mx-2"
+            aspect-ratio="1"
+            rounded="circle"
+          >
+            <div
+              class="ar-1 downloads-image"
+              style="background-image: url(/landing/downloads/iconsax-jar.svg);"
+            ></div>
+          </a-button>
+        </a>
+        <a href="https://iconsax.io/Iconsax/Svg.zip">
+          <a-button
+            :color="color"
+            class="mx-2"
+            aspect-ratio="1"
+            rounded="circle"
+          >
+            <div
+              class="ar-1 downloads-image"
+              style="background-image: url(/landing/downloads/iconsax-svg.svg);"
+            ></div>
+          </a-button>
+        </a>
       </div>
 
       <div class="d-flex flex-column mt-16 mb-6">

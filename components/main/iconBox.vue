@@ -4,7 +4,7 @@
       <div class="col-4 pa-3">
         <div
           :class="`a-icon-${iconStyle}-${iconName} ${color}-${
-            darkMode ? 'lighten-2' : active ? 'glassy-5' : 'lighten-3'
+            darkMode ? 'lighten-2' : active ? 'glassy-5' : 'pale-6'
           }`"
         ></div>
       </div>

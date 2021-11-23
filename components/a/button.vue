@@ -1,6 +1,6 @@
 <template>
   <button
-    class="a-button text-button px-3"
+    class="a-button text-button px-3 text-decoration-none"
     :class="classesState"
     @click.stop="click($event)"
     @mouseleave="blur()"
@@ -162,13 +162,14 @@ export default {
       this.isHovered = false
     },
     ripple(event) {
+      console.log(event)
       const button = event.currentTarget
       const circle = document.createElement('span')
       const diameter = Math.max(button.clientWidth, button.clientHeight)
       const radius = diameter / 2
       circle.style.width = circle.style.height = `${diameter}px`
-      circle.style.left = `${event.clientX - (button.offsetLeft + radius)}px`
-      circle.style.top = `${event.clientY - (button.offsetTop + radius)}px`
+      circle.style.left = `${event.layerX - radius}px`
+      circle.style.top = `${event.layerY - radius}px`
       circle.classList.add('a-ripple')
       const ripple = button.getElementsByClassName('a-ripple')[0]
 

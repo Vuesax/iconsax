@@ -1,7 +1,7 @@
 
 @mixin background-radial($color_value) {
 
-  background-image: radial-gradient(circle, $color_value, #00000000 90%) !important;
+  background-image: radial-gradient(circle, $color_value, #00000000 80%) !important;
   backdrop-filter: blur(4px);
 
 }

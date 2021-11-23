@@ -188,7 +188,7 @@
         >
           <template #title>
             <div class="px-4">
-              <div class="text-h1 font-weight-xbold text--purple-darken-4">
+              <div class="text-h1 font-weight-xbold text--purple-darken-2">
                 +12000
               </div>
               <div>
@@ -200,7 +200,7 @@
           </template>
           <template #subtitle>
             <div
-              :class="`row w-100 rounded-3  pa-2 ${iconQuery.currentColor}-darken-2 text--${iconQuery.currentColor}-lighten-4 `"
+              :class="`row w-100 rounded-3 bloom-5-grey-glassy-6 pa-2 ${iconQuery.currentColor}-darken-2 text--${iconQuery.currentColor}-lighten-4 `"
             >
               <div class="col-4 d-flex justify-center">
                 <div>
@@ -222,21 +222,23 @@
               </div>
             </div>
             <div class="d-flex w-100 mt-16 justify-center align-center">
-              <a-button
-                class="pa-2 px-6"
-                rounded="3"
-                mode="filled"
-                color="blue"
-              >
-                <a-icon
-                  size="24px"
-                  color="grey-lighten-5"
-                  class="mr-2"
-                  icon-name="box"
-                  icon-style="bold"
-                ></a-icon>
-                Get Icons v1.0
-              </a-button>
+              <a href="https://iconsax.io/" target="_blank">
+                <a-button
+                  class="pa-2 px-6"
+                  rounded="3"
+                  mode="filled"
+                  color="blue"
+                >
+                  <a-icon
+                    size="24px"
+                    color="grey-lighten-5"
+                    class="mr-2"
+                    icon-name="box"
+                    icon-style="bold"
+                  ></a-icon>
+                  <span class="text-decoration-none">Get icons v1.0</span>
+                </a-button>
+              </a>
             </div>
           </template>
         </main-card>
@@ -267,8 +269,8 @@ export default {
   position: absolute;
   left: 6%;
   bottom: 40%;
-  height: 100px;
-  width: 100px;
+  height: 100px !important;
+  width: 100px !important;
   transform-style: preserve-3d;
   transform: rotateX(24deg) rotateY(12deg) rotateZ(-4deg);
   z-index: 10;
@@ -277,8 +279,8 @@ export default {
   position: absolute;
   left: 10%;
   bottom: 50%;
-  height: 100px;
-  width: 100px;
+  height: 100px !important;
+  width: 100px !important;
   transform-style: preserve-3d;
   transform: rotateX(24deg) rotateY(12deg) rotateZ(-4deg) scale(1.1);
   z-index: 10;
@@ -287,8 +289,8 @@ export default {
   position: absolute;
   left: 15%;
   bottom: 33%;
-  height: 100px;
-  width: 100px;
+  height: 100px !important;
+  width: 100px !important;
   transform-style: preserve-3d;
   transform: rotateX(24deg) rotateY(12deg) rotateZ(-4deg) scale(1.3);
   z-index: 10;
@@ -298,8 +300,8 @@ export default {
   position: absolute;
   right: 6%;
   bottom: 40%;
-  height: 100px;
-  width: 100px;
+  height: 100px !important;
+  width: 100px !important;
   transform-style: preserve-3d;
   transform: rotateX(-24deg) rotateY(12deg) rotateZ(4deg);
   z-index: 10;
@@ -308,8 +310,8 @@ export default {
   position: absolute;
   right: 10%;
   bottom: 50%;
-  height: 100px;
-  width: 100px;
+  height: 100px !important;
+  width: 100px !important;
   transform-style: preserve-3d;
   transform: rotateX(-24deg) rotateY(12deg) rotateZ(4deg) scale(1.1);
   z-index: 10;
@@ -318,8 +320,8 @@ export default {
   position: absolute;
   right: 15%;
   bottom: 33%;
-  height: 100px;
-  width: 100px;
+  height: 100px !important;
+  width: 100px !important;
   transform-style: preserve-3d;
   transform: rotateX(-24deg) rotateY(12deg) rotateZ(4deg) scale(1.3);
   z-index: 10;

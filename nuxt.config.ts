@@ -4,7 +4,24 @@ import { defineNuxtConfig } from 'nuxt3'
 export default defineNuxtConfig({
 pages: 'pages',
 layouts: 'layouts',
-ssr: false,
-dev:true,
-css: ['@/assets/main.scss']
+ssr: true,
+dev:false,
+css: ['@/assets/main.scss'],
+meta: {
+link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
+},
+pwa: {
+    manifest: {
+        name: 'Icon Sax'
+    },
+    meta: {
+        name: 'Icon Sax'
+    },
+    icon: {
+source: '@/public/icon.png'    }
+  },
+
+  buildModules: [
+    '@nuxtjs/pwa',
+  ],
 })

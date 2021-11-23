@@ -27,8 +27,9 @@
   animation-duration: 30s;
   animation-timing-function: linear;
 }
-  .a-ripple {
-    position: absolute; /* The absolute position we mentioned earlier */
+.a-ripple {
+  user-select: none;
+    position: absolute !important; 
     border-radius: 50%;
     transform: scale(0);
     animation: ripple 1s ease-out;
