@@ -3,8 +3,8 @@
   height: auto;
   aspect-ratio: 1;
   transition: 0.6s ease-in;
-  mask-image: url("/icons/#{$icon-style}/#{$icon-name}.svg");
-  -webkit-mask-image: url("/icons/#{$icon-style}/#{$icon-name}.svg");
+  mask-image: url("./icons/#{$icon-style}/#{$icon-name}.svg");
+  //-webkit-mask-image: url("./icons/#{$icon-style}/#{$icon-name}.svg");
   background-repeat: repeat;
   mask-size: 100%;
 }

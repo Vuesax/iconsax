@@ -1,15 +1,17 @@
 <template>
-  <div class="rounded-3 mx-2">
+  <div class="rounded-8">
     <div :class="classesState">
-      <div class="row align-center">
-        <div :class="`col-12 col-md-6 ${reverse ? 'order-2' : 'order-1'} `">
-          <p
-            :class="`pt-12 px-4 text-h3 font-weight-medium d-flex flex-column align-center justify-center`"
-          >
+      <div class="row align-stretch">
+        <div
+          :class="`col-12 d-flex flex-column align-stretch col-md-6 ${
+            reverse ? 'order-2' : 'order-1'
+          } `"
+        >
+          <p :class="`pt-12  px-4 fs-7 fw-3 d-flex   align-center`">
             <slot name="title"></slot>
           </p>
           <p
-            :class="`pb-12 px-4 pt-6 text-h5  font-weight-light  d-flex flex-column align-center justify-center`"
+            :class="`pb-12 px-4 pt-4 fs-4  fw-2  d-flex flex-column flex-grow-1 `"
           >
             <slot name="subtitle"></slot>
           </p>
@@ -57,10 +59,10 @@ const props = defineProps({
 export default {
   computed: {
     classesState() {
-      return `rounded-4 text--${
+      return `rounded-8 text--${
         this.darkMode
-          ? `${this.color}-lighten-5-gradient-left`
-          : `${this.color}-darken-4`
+          ? `grey-lighten-8-gradient-left`
+          : `${this.color}-darken-7`
       } 
           `
     },
@@ -69,7 +71,7 @@ export default {
 </script>
 <style lang="scss">
 .order-1 {
-  order: 2 !important;
+  order: 1 !important;
 }
 .order-2 {
   order: 2 !important;

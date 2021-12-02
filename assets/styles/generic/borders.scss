@@ -1,13 +1,13 @@
 @mixin border($color_value, $border_width) {
-  border-color: $color_value;
+  border-color: $color_value !important;
   border-width: $border_width;
   border-style: solid;
 }
 
 .app .border-none {
-  border-color: transparent;
-  border-width: 0;
-  border-style: solid;
+  border-color: transparent !important;
+  border-width: 0 !important;
+  border-style: solid !important;
 }
 
 @each $border_name, $border_value in $border-positions {

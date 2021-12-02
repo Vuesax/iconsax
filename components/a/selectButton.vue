@@ -1,34 +1,44 @@
 <template>
   <div class="a-select-box">
     <a-button
-      class="w-100 h-100 justify-space-between"
+      class="w-100 h-100 z-10"
       @click="focus()"
-      :mode="mode"
+      mode="select"
+      padding="24px"
+      :rounded="rounded"
       :color="color"
     >
-      <slot v-if="selected.text || selected.value" :selected="selected">
-        {{ selected.text || selected.value }}
-      </slot>
-      <slot v-else name="notFound">
-        Select
-      </slot>
-      <a-icon
-        size="24px"
-        icon-style="linear"
-        icon-name="arrow-down"
-        class="mr-2"
-        :color="color + '-lighten-4'"
-      ></a-icon>
+      <div class="d-flex justify-space-between w-100 align-center">
+        <slot v-if="selected.text || selected.value" :selected="selected">
+          {{ selected.text || selected.value }}
+        </slot>
+        <slot v-else name="notFound">
+          Select
+        </slot>
+        <a-icon
+          size="24px"
+          icon-style="linear"
+          icon-name="arrow-down"
+          class="mr-2"
+          :color="color + '-lighten-9'"
+        ></a-icon>
+      </div>
     </a-button>
-    <transition name="xablau">
-      <div v-if="isFocused" class="a-select-items">
+    <transition name="select-scroll">
+      <div
+        v-if="isFocused"
+        class="a-select-items rounded-6"
+        :class="`${darkMode ? `${color}-darken-6` : `${color}-lighten-9`}`"
+      >
         <a-button
-          class="my-1"
+          class="ma-1"
+          rounded="6"
           v-if="items.length"
           v-for="(item, i) in items"
           @click="input(item, i)"
           :color="color"
-          :mode="item.value === selected.value ? 'filled' : 'default'"
+          :active="item.value === selected.value"
+          mode="radio"
         >
           <slot name="item" :item="item">
             {{ (item.text || item.value) }}
@@ -39,6 +49,7 @@
   </div>
 </template>
 <script setup>
+const darkMode = useState('darkMode')
 const props = defineProps({
   modelValue: {
     type: [String, Object],
@@ -54,7 +65,7 @@ const props = defineProps({
   },
   rounded: {
     type: String,
-    default: 2,
+    default: '2',
   },
 
   items: {
@@ -111,22 +122,25 @@ export default {
     flex-direction: column;
     display: flex;
     width: 100%;
-    z-index: 10;
+    z-index: 1;
     transform: translate(0, 100%);
-    bottom: -5px;
+    bottom: 24px;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    right: 2px;
   }
 }
-.xablau-enter-active {
+.select-scroll-enter-active {
   animation: bounce-in 0.25s ease-out;
 }
-.xablau-leave-active {
+.xablauselect-scroll-leave-active {
   animation: bounce-in 0.25s ease-out reverse;
 }
-.xablau-enter-to {
+.select-scroll-enter-to {
   transform: translate(0, 100%);
 }
-.xablau-enter-from,
-.xablau-leave-to {
+.select-scroll-enter-from,
+.select-scroll-leave-to {
   transform: translate(0, 80%);
   opacity: 0;
   z-index: -1;

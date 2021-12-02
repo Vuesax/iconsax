@@ -1,79 +1,10 @@
-@import './styles/tools/_index';
 @import './styles/settings/_index';
 @import './styles/generic/_index';
-@import './styles/utilities/_index';
-@import './styles/elements/_index';
-// Change default behaviour of style
-html{
-  font-size: $font-size-root;
-  overflow-x: hidden;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
-
-* {
-      transition: 0.6s;
-}
-body {
-  margin: 0;
-  padding: 0;
-
-}
-header {
-  position:relative;
-  z-index:10
-}
-a:-webkit-any-link {
-  text-decoration: none;
-  text-decoration-line: none;
-  text-decoration-thickness: none;
-  text-decoration-style: none;
-  text-decoration-color: none;
-}
-input {
-  outline: none;
-  appearance: none;
-  background-color: transparent;
-  border-style: none;
-  font: inherit;
-  flex: 1 1 auto;
-  line-height: 20px;
-  padding: 8px;
-  max-width: 100%;
-  }
-  ::-webkit-scrollbar {
-    width: 5px;
-  }
-  
-  ::-webkit-scrollbar-track {
-    background: #000000;
-  }
-  
-  ::-webkit-scrollbar-thumb {
-    background: #555555;
-    background-size: cover;
-  }
-  
-  ::-webkit-scrollbar-thumb:hover {
-    background: #666666;
-    background-size: cover;
-  }
-// ----------------
-
-// General
-.app{
-  font-family: $body-font-family;
-  font-weight: 300;
-  line-height: $line-height-root;
-  .app-wrapper {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  }
-  }
-// -----------------
+@import './styles/elements/index';
+@import './styles/components/index';
+@import './styles/utilities/index';
+ 
+//ITCSS: Scalable and Maintainable CSS Architecture https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
 
 // Animations 
 @keyframes infiniteSlide {
@@ -89,6 +20,15 @@ input {
   to {
     transform: scale(4);
     opacity: 0;
+  }
+}
+
+@keyframes expand-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
   }
 }
 

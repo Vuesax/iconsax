@@ -1,0 +1,58 @@
+
+@mixin generate-properties($properties, $value) {
+  // if has only one property, then transform to list
+  $propertiesList: () !default;
+  @if type-of($properties) == "string" {
+    $propertiesList: append((), $properties);
+  } @else {
+    $propertiesList: $properties;
+  }
+  @each $property in $propertiesList {
+    #{$property}: $value !important;
+  }
+}
+
+@each $ut-name, $ut-values in $utilities {
+  @each $bp-name, $bp-size in $grid-breakpoints {
+    $breakpoint: if($bp-name != '', "-#{$bp-name}", "");
+    @media (min-width: $bp-size) {
+    @if(type-of($ut-values) == 'map'){
+    $properties: map-get($ut-values, properties);
+    $values: map-get($ut-values, values);
+        @if (type-of($values) != 'map') {
+      @each $v-value in $values {
+        .app .#{$ut-name}#{$breakpoint}-#{$v-value} {
+          @include generate-properties($properties, $v-value);
+        }
+      }
+    }  @else  {
+      @each $v-name, $v-value in $values {
+        .app .#{$ut-name}#{$breakpoint}-#{$v-name} {
+          @include generate-properties($properties, $v-value);
+        }
+      }
+    }
+  } @else {
+    @each $ut-item in $ut-values {
+   $properties: map-get($ut-item, properties);
+   $values: map-get($ut-item, values);
+
+   @if (type-of($values) != 'map') {
+      @each $v-value in $values {
+        .app .#{$ut-name}#{$breakpoint}-#{$v-value} {
+          @include generate-properties($properties, $v-value);
+        }
+      }
+    }  @else  {
+      @each $v-name, $v-value in $values {
+        .app .#{$ut-name}#{$breakpoint}-#{$v-name} {
+          @include generate-properties($properties, $v-value);
+        }
+      }
+    }
+  }
+  }
+}
+}
+}
+

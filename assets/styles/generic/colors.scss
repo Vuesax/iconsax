@@ -1,5 +1,7 @@
 @mixin background-color($color_value) {
   background-color: $color_value !important;
+  backdrop-filter: blur(4px);
+
 }
 
 @mixin text-color($color_value) {

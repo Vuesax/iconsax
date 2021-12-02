@@ -32,7 +32,7 @@
 
     <div
       class="app-wrapper pt-16"
-      :class="darkMode ? 'background-pale-2' : 'grey-lighten-5'"
+      :class="darkMode ? 'background-pale-2' : 'grey-lighten-10'"
     >
       <NuxtPage />
       <a-footer></a-footer>

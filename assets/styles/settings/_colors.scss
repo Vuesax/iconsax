@@ -1,14 +1,13 @@
-@import '../tools/_functions.sass';
 
 @function generateColorScheme($color) {
  $c: $color;
   $colors: ('default': $c) !default;
 
-  @for $i from 1 through 5 {
-    $colors: map-merge($colors, ('lighten-#{$i}': lighten($c, $i * 10)))
+  @for $i from 1 through 10 {
+    $colors: map-merge($colors, ('lighten-#{$i}': lighten($c, $i * 5)))
   }
-  @for $i from 1 through 5 {
-    $colors: map-merge($colors, ('darken-#{$i}': darken($c, $i * 10)))
+  @for $i from 1 through 10 {
+    $colors: map-merge($colors, ('darken-#{$i}': darken($c, $i * 5)))
   }
   @for $i from 1 through 10 {
     $colors: map-merge($colors, ('glassy-#{$i}': transparentize($c, ($i /10))))
@@ -20,36 +19,20 @@
   @return $colors
 }
 
-// $eletric-blues: generateColorScheme(#6F00FF);
-$purples: generateColorScheme(#8f00ff);
-$blues: generateColorScheme(#0019FF);
-$pinks: generateColorScheme(#FF00C3);
-$oranges: generateColorScheme(#FF5800);
-$golds: generateColorScheme(#A57C00);
-$greens: generateColorScheme(#299617);
-$cyans: generateColorScheme(#00EEFF);
-$yellows: generateColorScheme(#FFD300);
-$successs: generateColorScheme(#6EFF00);
-$reds: generateColorScheme(#FF1100);
-$backgrounds: generateColorScheme(#0d1821);
-$greys: generateColorScheme(#666666ff);
 
-$colors: () !default;
-$colors: map-deep-merge(
-  (
-    'purple': $purples,
-    'blue': $blues,
-    'pink': $pinks,
-    'orange': $oranges,
-    'gold': $golds,
-    'green': $greens,
-    'cyan': $cyans,
-    'yellow': $yellows,
-    'red': $reds,
-    'background': $backgrounds,
-    'grey': $greys,
-    'success': $successs,
-    
-  ),
-  $colors
-);
+$colors: (
+  'primary': generateColorScheme(#195bff),
+  'purple': generateColorScheme(#8f00ff),
+  'blue': generateColorScheme(#0019FF),
+  'pink': generateColorScheme(#FF00C3),
+  'orange': generateColorScheme(#FF5800),
+  'gold': generateColorScheme(#A57C00),
+  'green': generateColorScheme(#299617),
+  'cyan': generateColorScheme(#00EEFF),
+  'yellow': generateColorScheme(#FFD300),
+  'success': generateColorScheme(#6EFF00),
+  'red': generateColorScheme(#FF1100),
+  'background': generateColorScheme(#0f0f10),
+  'grey': generateColorScheme(#6e6e81ff),
+) !default;
+

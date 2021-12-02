@@ -1,20 +1,6 @@
 <template>
-  <div
-    class="``"
-    :class="
-      `a-input-box rounded-2 ` +
-      (isFocused
-        ? `border-bottom-${color}  bloom-3-${color}-glassy-5`
-        : `  bloom-3-grey-glassy-9`)
-    "
-  >
-    <a-icon
-      size="32px"
-      class="ma-2"
-      :color="color"
-      icon-name="search-normal"
-      icon-style="linear"
-    />
+  <div class="``" :class="`a-input-box rounded-2 `">
+    <slot name="prepend"></slot>
     <input
       type="text"
       :placeholder="placeholder"
@@ -33,7 +19,7 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: 'purple',
+    default: 'grey',
   },
   light: {
     type: Boolean,

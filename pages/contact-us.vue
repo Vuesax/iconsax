@@ -9,14 +9,14 @@
           <div class="px-4">
             <div>Can't contact us</div>
             <div>
-              <span class="text-h4 font-weight-thin">
+              <span class="fs-5 fw-1">
                 404 contact page not found
               </span>
             </div>
           </div>
         </template>
         <template #subtitle>
-          <p class="font-weight-thin mt-10">
+          <p class="fw-1 mt-10">
             Please come back in a few days
           </p>
         </template>

@@ -14,8 +14,6 @@
   "dependencies": {
     "@nuxtjs/pwa": "^3.3.5",
     "sass": "^1.43.4",
-    "sass-loader": "^12.3.0",
-    "vuesax": "^3.12.2",
-    "vuetify": "^3.0.0-alpha.11"
+    "sass-loader": "^12.3.0"
   }
 }

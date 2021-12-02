@@ -1,5 +1,18 @@
-// Generate all imports for font styling
+// fonts that will be imported
+$config-font-weight: (
+  "ExtraLight": 100,
+  "Light": 200,
+  "Regular": 400,
+  "SemiBold": 500,
+  "Bold": 600,
+  "ExtraBold": 900,
+) !default;
+$config-font-style: (
+  "": normal,
+  "Italic": italic,
+) !default;
 
+// Generate all imports for font styling
 @each $fwName, $fwValue in $config-font-weight {
   @each $fsName, $fsValue in $config-font-style {
     @font-face {

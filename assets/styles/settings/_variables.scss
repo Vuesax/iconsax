@@ -1,194 +1,84 @@
-@import '../tools/_functions.sass';
-// Modyfied version of Vuetify utilities
-$body-font-family: 'Poppins', sans-serif !default;
-$font-size-root: 16px !default;
-$line-height-root: 1.5 !default;
-$border-radius-root: 16px !default;
-$rounded: () !default;
-$rounded: map-deep-merge(
-  (
-    0: 0,
-    '1': $border-radius-root / 4,
-    '2': $border-radius-root / 2,
-    '3': $border-radius-root ,
-    '4': $border-radius-root * 2,
-    'pill': 9999px,
-    'circle': 50%
-  ),
-  $rounded
-);
+$rounded: (
+  0: 0,
+  "1": 4px,
+  "2": 8px,
+  "3": 12px,
+  "4": 14px,
+  "5": 16px,
+  "6": 22px,
+  "7": 26px,
+  "8": 40px,
+  "9": 50px,
+  "10": 9999px,
+  "circle": 50%,
+) !default;
 
-$spacer: 4px !default;
+$spacer: 3px !default;
 $spacers: () !default;
-@if (type-of($spacers) == list) {
-  @for $i from 0 through 16 {
-    $spacers: map-merge($spacers, ($i: $spacer * $i))
-  }
-}
-
-$negative-spacers: () !default;
-@if (type-of($negative-spacers) == list) {
-  @for $i from 1 through 16 {
-    $negative-spacers: map-merge($negative-spacers, ("n" + $i: -$spacer * $i))
-  }
-}
-
-$grid-breakpoints: () !default;
-$grid-breakpoints: map-deep-merge(
-  (
-    'xs': 0px,
-    'sm': 600px,
-    'md': 960px,
-    'lg': 1280px - 16px,
-    'xl': 1920px - 16px
-  ),
-  $grid-breakpoints
-);
-$font-weights: () !default;
-$font-weights: map-deep-merge(
-  (
-    'thin': 100,
-    'light': 300,
-    'regular': 400,
-    'medium': 500,
-    'bold': 700,
-    'xbold': 900,
-    'black': 1200
-  ),
-  $font-weights
-);
-// fonts that will be imported
-$config-font-weight: (
-  "ExtraLight": 100,
-  "Light": 300,
-  "Regular": 400,
-  "Medium": 500,
-  "SemiBold": 700,
-  "Bold": 900,
-  "ExtraBold": 1200,
-) !default;
-$config-font-style: (
-  "": normal,
-  "Italic": italic,
-) !default;
-
-
-$headings: () !default;
-$headings: map-deep-merge(
-  (
-    'h1': (
-      'size': 6rem,
-      'weight': 300,
-      'line-height': 6rem,
-      'letter-spacing': -.015625em,
-      'font-family': $body-font-family,
-      'text-transform': false
-    ),
-    'h2': (
-      'size': 3.75rem,
-      'weight': 300,
-      'line-height': 3.75rem,
-      'letter-spacing': -.0083333333em,
-      'font-family': $body-font-family,
-      'text-transform': false
-    ),
-    'h3': (
-      'size': 3rem,
-      'weight': 400,
-      'line-height': 3.125rem,
-      'letter-spacing': normal,
-      'font-family': $body-font-family,
-      'text-transform': false
-    ),
-    'h4': (
-      'size': 2.125rem,
-      'weight': 400,
-      'line-height': 2.5rem,
-      'letter-spacing': .0073529412em,
-      'font-family': $body-font-family,
-      'text-transform': false
-    ),
-    'h5': (
-      'size': 1.5rem,
-      'weight': 400,
-      'line-height': 2rem,
-      'letter-spacing': normal,
-      'font-family': $body-font-family,
-      'text-transform': false
-    ),
-    'h6': (
-      'size': 1.25rem,
-      'weight': 500,
-      'line-height': 2rem,
-      'letter-spacing': .0125em,
-      'font-family': $body-font-family,
-      'text-transform': false
-    ),
-    'subtitle-1': (
-      'size': 1rem,
-      'weight': normal,
-      'line-height': 1.75rem,
-      'letter-spacing': .009375em,
-      'font-family': $body-font-family,
-      'text-transform': false
-    ),
-    'subtitle-2': (
-      'size': .875rem,
-      'weight': 500,
-      'line-height': 1.375rem,
-      'letter-spacing': .0071428571em,
-      'font-family': $body-font-family,
-      'text-transform': false
-    ),
-    'body-1': (
-      'size': 1rem,
-      'weight': 400,
-      'line-height': 1.5rem,
-      'letter-spacing': .03125em,
-      'font-family': $body-font-family,
-      'text-transform': false
-    ),
-    'body-2': (
-      'size': .875rem,
-      'weight': 400,
-      'line-height': 1.25rem,
-      'letter-spacing': .0178571429em,
-      'font-family': $body-font-family,
-      'text-transform': false
-    ),
-    'button': (
-      'size': .875rem,
-      'weight': 500,
-      'line-height': 2.25rem,
-      'letter-spacing': .0892857143em,
-      'font-family': $body-font-family,
-      'text-transform': uppercase
-    ),
-    'caption': (
-      'size': .75rem,
-      'weight': 400,
-      'line-height': 1.25rem,
-      'letter-spacing': .0333333333em,
-      'font-family': $body-font-family,
-      'text-transform': false
-    ),
-    'overline': (
-      'size': .75rem,
-      'weight': 500,
-      'line-height': 2rem,
-      'letter-spacing': .1666666667em,
-      'font-family': $body-font-family,
-      'text-transform': uppercase
+@for $i from 0 through 20 {
+  $spacers: map-merge(
+    $spacers,
+    (
+      $i: $spacer * $i,
     )
-  ),
-  $headings
-);
-
-$typography: () !default;
-@each $type, $values in $headings {
-  $typography: map-deep-merge(
-    $typography,
-    (#{$type}: map-values($values))
   );
 }
+$negative-spacers: () !default;
+@for $i from 1 through 20 {
+  $negative-spacers: map-merge($negative-spacers, ("n" + $i: -$spacer * $i));
+}
 
+$grid-breakpoints: (
+  "": 0px,
+  "sm": 600px,
+  "md": 960px,
+  "lg": 1280px - 16px,
+  "xl": 1920px - 16px,
+) !default;
+
+$font-weights: (
+  "1": 100,
+  "2": 200,
+  "3": 400,
+  "4": 500,
+  "5": 600,
+  "6": 900,
+) !default;
+
+$font-sizes: (
+  "1": 0.875rem,
+  "2": 1rem,
+  "3": 1.25rem,
+  "4": 1.5rem,
+  "5": 1.75rem,
+  "6": 2.125rem,
+  "7": 3rem,
+  "8": 3.75rem,
+  "9": 6rem,
+) !default;
+
+$border-positions: 
+(
+  'default': 1px 1px 1px 1px,
+  'top': 1px 0px 0px 0px,
+  'top-right': 1px 1px 0px 0px,
+  'bottom-left':  0px 0px 1px 1px,
+  'bottom': 0px 0px 1px 0px,
+  'left':  0px 0px 0px 1px,
+  'top-left':  1px 0px 0px 1px,
+  'right':  0px 1px 0px 0px,
+  'bottom-right': 0px 1px 1px 0px,
+) !default;
+
+$directions: 
+(
+  'radial': '',
+  'bottom': 0deg,
+  'bottom-left':  45deg,
+  'left':  90deg,
+  'top-left':  135deg,
+  'top': 180deg,
+  'top-right': 225deg,
+  'right':  270deg,
+  'bottom-right': 315deg,
+) !default;

@@ -9,14 +9,14 @@
           <div class="px-4">
             <div>Where is that license?</div>
             <div>
-              <span class="text-h4 font-weight-thin">
+              <span class="text-5 fw-1">
                 Uh, Uh, we didn't find any license
               </span>
             </div>
           </div>
         </template>
         <template #subtitle>
-          <p class="font-weight-thin mt-5">
+          <p class="fw-1 mt-5">
             Get me some coffe and I'll get it for you.
           </p>
         </template>

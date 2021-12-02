@@ -6,8 +6,6 @@
     >
       <div class="pa-4 p-relative">
         <main-icon-box
-          @click="changeSelection(filteredIcons[i - 1])"
-          :color="color"
           :active="selectedIcons.includes(filteredIcons[i - 1])"
           :icon-style="iconStyle"
           :icon-name="filteredIcons[i - 1]"
@@ -15,17 +13,27 @@
         />
         <transition name="expand">
           <div v-show="currentlyHovered === i" class="hover-box rounded-2">
-            <a-button color="cyan" @click="copy(filteredIcons[i - 1])">
+            <a-button
+              @click="changeSelection(filteredIcons[i - 1])"
+              width="30px"
+              rounded="2"
+              padding="0px"
+              aspectRatio="1"
+              mode="filled"
+              :color="
+                selectedIcons.includes(filteredIcons[i - 1])
+                  ? 'grey'
+                  : 'primary'
+              "
+            >
               <a-icon
-                size="14px"
-                color="grey-lighten-5"
-                class="mr-1"
-                :icon-name="isCopyed ? 'copy-success' : 'copy'"
-                icon-style="bold"
+                size="25px"
+                color="grey-lighten-10"
+                :icon-name="
+                  selectedIcons.includes(filteredIcons[i - 1]) ? 'minus' : 'add'
+                "
+                icon-style="outline"
               ></a-icon>
-              <span class="text-caption">
-                {{ isCopyed ? 'Copyed' : 'Copy' }}
-              </span>
             </a-button>
           </div>
         </transition>
@@ -133,8 +141,11 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  bottom: 17px;
-  width: calc(100% - 31px);
+  top: 30px;
+  right: 0px;
+  width: 20px;
+  height: 20px;
+  aspect-ratio: 1;
 }
 .expand-enter-active {
   animation: expand 0.1s ease-out;
