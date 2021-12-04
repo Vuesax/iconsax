@@ -1,0 +1,51 @@
+@mixin background-color($color_value) {
+  background-color: $color_value !important;
+  backdrop-filter: blur(4px);
+
+}
+
+@mixin text-color($color_value) {
+  color: $color_value !important;
+  caret-color: $color_value !important;
+}
+@mixin bloom($color_value, $i) {
+  -webkit-box-shadow: 0px #{$i * 2}px #{$i * 4}px 0px $color_value; 
+  box-shadow: 0px #{$i * 2}px #{$i * 3}px 0px $color_value;
+}
+
+
+  @each $color_name, $color_color in $colors {
+    @each $color_type, $color_value in $color_color {
+      @if ($color_type == 'default') {
+        .app .#{$color_name} {
+          @include background-color($color_value);
+        }
+
+        .app .text--#{$color_name} {
+          @include text-color($color_value);
+        }
+        @for $i from 1 through 16 {
+          .app .bloom-#{$i}-#{$color_name} {
+            @include bloom($color_value, $i);
+          }
+        }
+        
+      }
+      @else {
+        .app .#{$color_name}-#{$color_type} {
+          @include background-color($color_value);
+        }
+
+        .app .text--#{$color_name}-#{$color_type} {
+          @include text-color($color_value);
+        }
+
+        @for $i from 1 through 16 {
+          .app .bloom-#{$i}-#{$color_name}-#{$color_type} {
+            @include bloom($color_value, $i);
+          }
+        }
+      }
+    }
+  }
+

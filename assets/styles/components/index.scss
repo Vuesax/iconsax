@@ -1,0 +1,100 @@
+@import './icons.scss';
+@import './images.scss';
+@import "./grid.sass";
+.app{
+  .app-wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  }
+ }
+
+.a-waves {
+    top: 0%;
+    left: 0%;
+    position: absolute;    
+    z-index: 0;
+    height: 100%;
+    width: 100%;
+    mask-image: url("./landing/wave.svg");
+    -webkit-mask-image: url("./landing/wave.svg");
+    background-repeat: repeat;
+    mask-size: 100px;
+    animation-name: infiniteSlide;
+    animation-delay: 1s;
+    animation-iteration-count: infinite;
+  
+    animation-duration: 30s;
+    animation-timing-function: linear;
+  }
+.a-waves-mask {
+  mask-image: url("./landing/wave.svg");
+  -webkit-mask-image: url("./landing/wave.svg");
+  background-repeat: repeat;
+  mask-size: 100px;
+  animation-name: infiniteSlide;
+  animation-delay: 1s;
+  animation-iteration-count: infinite;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+}
+.a-ripple {
+  user-select: none;
+    position: absolute !important; 
+    border-radius: 50%;
+    transform: scale(0);
+    animation: ripple 1s ease-out;
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+
+  .gradient-border {
+    border-width: 1px !important;
+    border-color: transparent;
+    border-style: solid;
+    background-color: transparent;
+    background-clip: border-box; /* !importanté */
+    box-sizing: border-box;
+  background-origin: border-box;
+
+    background-image: radial-gradient(
+        100% 100% at 100% 0%,
+        #e9eff888,
+        transparent
+      ),
+      radial-gradient(100% 100% at 0% 0%, #44444466, transparent),
+      radial-gradient(100% 100% at 0% 100%, #e9eff888, transparent),
+      radial-gradient(100% 100% at 100% 100%, #44444466, transparent) !important;
+  }
+  
+  .gradient-border-hover{
+    border-width: 1px !important;
+    border-color: transparent;
+    border-style: solid;
+    background-color: transparent;
+    background-clip: border-box; /* !importanté */
+    box-sizing: border-box;
+  background-origin: border-box;
+
+
+    &:hover {
+    background-image: radial-gradient(
+        100% 100% at 100% 0%,
+        #e9eff888,
+        transparent
+      ),
+      radial-gradient(100% 100% at 0% 0%, #44444466, transparent),
+      radial-gradient(100% 100% at 0% 100%, #e9eff888, transparent),
+      radial-gradient(100% 100% at 100% 100%, #44444466, transparent) !important;
+  }}
+  .gradient-border-middle {
+    border: solid 1px transparent;
+    background-color: transparent;
+    background-clip: border-box; /* !importanté */
+    box-sizing: border-box;
+    box-sizing: border-box;
+    background-origin: border-box;
+
+
+    background-image: radial-gradient(50% 50% at 50% -25%, #55555566, transparent),
+      radial-gradient(50% 50% at 50% 125%, #55555566, transparent) !important;
+  }

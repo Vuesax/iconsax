@@ -1,0 +1,34 @@
+@import './styles/settings/_index';
+@import './styles/generic/_index';
+@import './styles/elements/index';
+@import './styles/components/index';
+@import './styles/utilities/index';
+ 
+//ITCSS: Scalable and Maintainable CSS Architecture https://www.xfive.co/blog/itcss-scalable-maintainable-css-architecture/
+
+// Animations 
+@keyframes infiniteSlide {
+  0% {
+    mask-position: 0% 0%;
+  }
+
+  100% {
+    mask-position: 100% 0%;  
+  }
+}
+@keyframes ripple {
+  to {
+    transform: scale(4);
+    opacity: 0;
+  }
+}
+
+@keyframes expand-x {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+

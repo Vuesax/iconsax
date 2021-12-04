@@ -1,0 +1,18 @@
+@mixin icon($icon-style, $icon-name) {
+  width: 100%;
+  height: auto;
+  aspect-ratio: 1;
+  transition: 0.6s ease-in;
+  mask-image: url("./icons/#{$icon-style}/#{$icon-name}.svg");
+  //-webkit-mask-image: url("./icons/#{$icon-style}/#{$icon-name}.svg");
+  background-repeat: repeat;
+  mask-size: 100%;
+}
+
+@each $icon-style in $icon-styles {
+  @each $icon-name in $icon-names {
+    .app .a-icon-#{$icon-style}-#{$icon-name} {
+      @include icon($icon-style, $icon-name);
+    }
+  }
+}

@@ -1,0 +1,80 @@
+
+@mixin background-radial($color_value) {
+
+  background-image: radial-gradient(circle, $color_value, #00000000 80%) !important;
+  backdrop-filter: blur(4px);
+
+}
+
+@mixin text-clip-radial($color_value) {
+  background-image: radial-gradient(circle, $color_value, #00000000 90%) !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(4px);
+
+}
+
+@mixin background-linear($color_value, $direction_value) {
+
+  background-image: linear-gradient($direction_value, $color_value, $color_value 20% ,scale-color($color_value, $alpha: -70% )) !important;
+  backdrop-filter: blur(4px);
+
+}
+
+@mixin text-clip-linear($color_value, $direction_value) {
+  background-image: linear-gradient($direction_value, $color_value, $color_value 20% ,scale-color($color_value, $alpha: -50% )) !important;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: rgba(0, 0, 0, 0);
+  backdrop-filter: blur(4px);
+
+}
+
+@each $direction_name, $direction_value in $directions {
+  @each $color_name, $color_colors in $colors {
+    @each $color_type, $color_value in $color_colors {
+      @if ($color_type == 'default') {
+        @if($direction-name == 'radial'){
+        .app .#{$color_name}-gradient-radial {
+          @include background-radial($color_value);
+        }
+
+        .app .text--#{$color_name}-gradient-radial {
+          @include text-clip-radial($color_value);
+        }
+      } @else {
+        .app .#{$color_name}-gradient-#{$direction_name} {
+          @include background-linear($color_value, $direction_value);
+        }
+
+        .app .text--#{$color_name}-gradient-#{$direction_name} {
+          @include text-clip-linear($color_value, $direction_value);
+        }
+      }
+      }
+      @else {
+
+        @if($direction-name == 'radial'){
+          .app .#{$color_name}-#{$color_type}-gradient-radial {
+            @include background-radial($color_value);
+          }
+  
+          .app .text--#{$color_name}-#{$color_type}-gradient-radial {
+            @include text-clip-radial($color_value);
+          }
+        } @else {
+          .app .#{$color_name}-#{$color_type}-gradient-#{$direction_name} {
+            @include background-linear($color_value, $direction_value);
+          }
+  
+          .app .text--#{$color_name}-#{$color_type}-gradient-#{$direction_name} {
+            @include text-clip-linear($color_value, $direction_value);
+          }
+        }
+      }
+    }
+  }
+}
+
+

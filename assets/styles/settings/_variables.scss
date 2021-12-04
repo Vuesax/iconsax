@@ -1,0 +1,84 @@
+$rounded: (
+  0: 0,
+  "1": 4px,
+  "2": 8px,
+  "3": 12px,
+  "4": 14px,
+  "5": 16px,
+  "6": 22px,
+  "7": 26px,
+  "8": 40px,
+  "9": 50px,
+  "10": 9999px,
+  "circle": 50%,
+) !default;
+
+$spacer: 3px !default;
+$spacers: () !default;
+@for $i from 0 through 20 {
+  $spacers: map-merge(
+    $spacers,
+    (
+      $i: $spacer * $i,
+    )
+  );
+}
+$negative-spacers: () !default;
+@for $i from 1 through 20 {
+  $negative-spacers: map-merge($negative-spacers, ("n" + $i: -$spacer * $i));
+}
+
+$grid-breakpoints: (
+  "": 0px,
+  "sm": 600px,
+  "md": 960px,
+  "lg": 1280px - 16px,
+  "xl": 1920px - 16px,
+) !default;
+
+$font-weights: (
+  "1": 100,
+  "2": 200,
+  "3": 400,
+  "4": 500,
+  "5": 600,
+  "6": 900,
+) !default;
+
+$font-sizes: (
+  "1": 0.875rem,
+  "2": 1rem,
+  "3": 1.25rem,
+  "4": 1.5rem,
+  "5": 1.75rem,
+  "6": 2.125rem,
+  "7": 3rem,
+  "8": 3.75rem,
+  "9": 6rem,
+) !default;
+
+$border-positions: 
+(
+  'default': 1px 1px 1px 1px,
+  'top': 1px 0px 0px 0px,
+  'top-right': 1px 1px 0px 0px,
+  'bottom-left':  0px 0px 1px 1px,
+  'bottom': 0px 0px 1px 0px,
+  'left':  0px 0px 0px 1px,
+  'top-left':  1px 0px 0px 1px,
+  'right':  0px 1px 0px 0px,
+  'bottom-right': 0px 1px 1px 0px,
+) !default;
+
+$directions: 
+(
+  'radial': '',
+  'bottom': 0deg,
+  'bottom-left':  45deg,
+  'left':  90deg,
+  'top-left':  135deg,
+  'top': 180deg,
+  'top-right': 225deg,
+  'right':  270deg,
+  'bottom-right': 315deg,
+) !default;

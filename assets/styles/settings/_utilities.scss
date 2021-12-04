@@ -1,0 +1,350 @@
+
+$utilities: (
+  "overflow": (
+    properties: overflow,
+    values: (
+      auto,
+      hidden,
+      visible,
+    ),
+  ),
+  "overflow-x": (
+    properties: overflow-x,
+    values: (
+      auto,
+      hidden,
+    ),
+  ),
+  "overflow-y": (
+    properties: overflow-y,
+    values: (
+      auto,
+      hidden,
+    ),
+  ),
+  "d": (
+    properties: display,
+    values: (
+      none,
+      inline,
+      inline-block,
+      block,
+      table,
+      table-row,
+      table-cell,
+      flex,
+      inline-flex,
+    ),
+  ),
+  "p": (
+    properties: position,
+    values: (
+      static,
+      relative,
+      fixed,
+      absolute,
+      sticky,
+    ),
+  ),
+  "z": (
+    properties: z-index,
+    values: (
+      1,
+      5,
+      10,
+      25,
+      50,
+      100,
+    ),
+  ),
+  "h": (
+    properties: height,
+    values: (
+      "auto": auto,
+      "25": 25%,
+      "50": 50%,
+      "75": 75%,
+      "100": 100%,
+    ),
+  ),
+  "w": (
+    properties: width,
+    values: (
+      "auto": auto,
+      "25": 25%,
+      "50": 50%,
+      "75": 75%,
+      "100": 100%,
+    ),
+  ),
+  "ar": (
+    properties: aspect-ratio,
+    values: (
+      1,
+      unset,
+    ),
+  ),
+  // Flex utilities
+  "flex":
+    (
+      (
+        properties: flex-direction,
+        values: (
+          row,
+          column,
+          row-reverse,
+          column-reverse,
+        ),
+      ),
+      (
+        properties: flex-grow,
+        values: (
+          grow-0: 0,
+          grow-1: 1,
+        ),
+      ),
+      (
+        properties: flex-shrink,
+        values: (
+          shrink-0: 0,
+          shrink-1: 1,
+        ),
+      ),
+      (
+        properties: flex-wrap,
+        values: (
+          wrap,
+          nowrap,
+          wrap-reverse,
+        ),
+      ),
+    ),
+  "justify": (
+    properties: justify-content,
+    values: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      space-between: space-between,
+      space-around: space-around,
+    ),
+  ),
+  "align": (
+    properties: align-items,
+    values: (
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      baseline: baseline,
+      stretch: stretch,
+    ),
+  ),
+  "align-self": (
+    properties: align-self,
+    values: (
+      auto: auto,
+      start: flex-start,
+      end: flex-end,
+      center: center,
+      baseline: baseline,
+      stretch: stretch,
+    ),
+  ),
+  // Margin utilities
+  "ma":
+    (
+      properties: margin,
+      values:
+        map-merge(
+          $negative-spacers,
+          $spacers,
+        ),
+    ),
+  "mx": (
+    properties: margin-right margin-left,
+    values:
+      map-merge(
+        $negative-spacers,
+        $spacers,
+         
+      ),
+  ),
+  "my": (
+    properties: margin-top margin-bottom,
+    class: my,
+    values:
+      map-merge(
+        $negative-spacers,
+        $spacers,
+         
+      ),
+  ),
+  "mt": (
+    properties: margin-top,
+    values:
+      map-merge(
+        $negative-spacers,
+        $spacers,
+         
+      ),
+  ),
+  "mr": (
+    properties: margin-right,
+    values: map-merge($negative-spacers, $spacers),
+  ),
+  "mb": (
+    properties: margin-bottom,
+    values:
+      map-merge(
+        $negative-spacers,
+        $spacers,
+         
+      ),
+  ),
+  "ml": (
+    properties: margin-left,
+    values:
+      map-merge(
+        $negative-spacers,
+        $spacers,
+         
+      ),
+  ),
+  // Padding utilities
+  "pa":
+    (
+      properties: padding,
+      values: $spacers,
+    ),
+  "px": (
+    properties: padding-right padding-left,
+    values: $spacers,
+  ),
+  "py": (
+    properties: padding-top padding-bottom,
+    values: $spacers,
+  ),
+  "pt": (
+    properties: padding-top,
+    values: $spacers,
+  ),
+  "pr": (
+    properties: padding-right,
+    values: $spacers,
+  ),
+  "pb": (
+    properties: padding-bottom,
+    values: $spacers,
+  ),
+  "pl": (
+    properties: padding-left,
+    values: $spacers,
+  ),
+  // Border
+  "rounded":
+    (
+      properties: border-radius,
+      values: $rounded,
+    ),
+  "rounded-top": (
+    properties: border-top-left-radius border-top-right-radius,
+    values: $rounded,
+  ),
+  "rounded-right": (
+    properties: border-top-right-radius border-bottom-right-radius,
+    values: $rounded,
+  ),
+  "rounded-bottom": (
+    properties: border-bottom-left-radius border-bottom-right-radius,
+    values: $rounded,
+  ),
+  "rounded-left": (
+    properties: border-top-left-radius border-bottom-left-radius,
+    values: $rounded,
+  ),
+  "rounded-top-left": (
+    properties: border-top-left-radius,
+    values: $rounded,
+  ),
+  "rounded-top-right": (
+    properties: border-top-right-radius,
+    values: $rounded,
+  ),
+  "rounded-bottom-right": (
+    properties: border-bottom-right-radius,
+    values: $rounded,
+  ),
+  "rounded-bottom-left": (
+    properties: border-bottom-left-radius,
+    values: $rounded,
+  ),
+  // Text
+  "text":
+    (
+      (
+        properties: text-align,
+        values: (
+          left,
+          right,
+          center,
+          justify,
+          start,
+          end,
+        ),
+      ),
+      (
+        properties: overflow-wrap word-break,
+        // word-break for IE & < Edge 18
+        values:
+          (
+            break: break-word,
+          ),
+      ),
+      (
+        properties: white-space overflow text-overflow,
+        values: (
+          truncate: (
+            nowrap,
+            hidden,
+            ellipsis,
+          ),
+        ),
+      ),
+      (
+        properties: text-transform,
+        values: (
+          none,
+          capitalize,
+          lowercase,
+          uppercase,
+        ),
+      ),
+      (
+        properties: white-space,
+        values: (
+          wrap: normal,
+          no-wrap: nowrap,
+          pre: pre,
+          pre-line: pre-line,
+          pre-wrap: pre-wrap,
+        ),
+      ),
+    ),
+  "text-decoration": (
+    properties: text-decoration,
+    values: (
+      line-through,
+      none,
+      overline,
+      underline,
+    ),
+  ),
+  "fs": (
+    properties: font-size line-height,
+    values: $font-sizes,
+  ),
+  "fw": (
+    properties: font-weight,
+    values: $font-weights,
+  ),
+) !default;
