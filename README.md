@@ -88,12 +88,12 @@ My logic was the following:
 *   IconSax initials are I and S
 *   What if we mix both
 
-![image info](https://t3132850.p.clickup-attachments.com/t3132850/b5f1134b-8129-4002-b9e6-279db9465ebb/image.png)
 
   
+![image](https://user-images.githubusercontent.com/66184202/144692684-e53dd1eb-4f7e-4226-b9a8-66331a3daeaa.png)
 
 And this was the result:
 
   
+![image (1)](https://user-images.githubusercontent.com/66184202/144692704-e7b91310-df4b-4dce-a04b-41e0b4fa2c4f.png)
 
-![](https://t3132850.p.clickup-attachments.com/t3132850/41e7a2cb-27c2-417e-89d5-e1ce01dec8ab/image.png)
