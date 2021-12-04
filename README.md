@@ -7,14 +7,19 @@ Starting server
 2.  Open it using a command line prompt
 
 ```
-cd /[dir]/iconsax
+cd /[dir]/iconsax-1
 ```
 3.  Install dependencies
 
 ```
 npm install
 ```
-4.  Run
+4.  Build it 
+
+```
+npm run build
+```
+5.  Run
 
 ```
 npm run start
@@ -38,15 +43,13 @@ To ensure a great visual communication, we need to folow visual hiearchy rules. 
 
 ### Color control
 
-Different colors create contrast in a design, but they need to have visual consistency. This can be made by using variations of a tone, like: saturation, opacity, shades and tints.
+Different colors create contrast in a design, but they need to have visual consistency. This can be made by using variations of a tone, like: saturation, opacity, gradients, shades and tints.
 
 ### Alignment and positioning
 
-Modern web apps usually use flexbox to align elements inside them. Also, they need to change according to the viewport of the user. To to so, we can create media queryes for each positioning feature (rows, displays, aligns, etc.)
+Modern web apps usually use flexbox to align elements inside them. Also, they need to change according to the viewport of the user. To to so, we can create media queryes for each positioning feature (rows, displays, aligns, etc.). 
 
-### Design patterns
 
-The design pattern was build under the concepts of **Glassmorphism** and **Neon,** adding colored box shadows, transparent gradient backgrounds and borders to elements.
 
   
 
@@ -85,7 +88,7 @@ My logic was the following:
 *   IconSax initials are I and S
 *   What if we mix both
 
-![](https://t3132850.p.clickup-attachments.com/t3132850/b5f1134b-8129-4002-b9e6-279db9465ebb/image.png)
+![image info](https://t3132850.p.clickup-attachments.com/t3132850/b5f1134b-8129-4002-b9e6-279db9465ebb/image.png)
 
   
 
